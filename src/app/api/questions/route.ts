@@ -30,13 +30,12 @@ export const POST = async (req: Request, res: Response) => {
         // }
       );
     } else if (type === 'mcq') {
-      //TODO: make prompt dynamic
       questions = await strict_output(
-        `I want to make a quiz about javascript.
-        I want 10 questions, with 4 answers per question.
-The questions should be in English.
-Please give me 1 correct answer for each question.
-The question can not be longer than 120 characters, and the answers can not be longer than 75 characters.`
+        `I want to make a quiz about ${topic}.
+        I want ${amount} questions, with 4 answers per question. 
+        The questions should be in English. 
+        Please give me 1 correct answer for each question. 
+        The question can not be longer than 120 characters, and the answers can not be longer than 75 characters.`
       );
     }
     return NextResponse.json(
