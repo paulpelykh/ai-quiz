@@ -56,14 +56,14 @@ enum GameType {
 model Game {
   id          String     @id @default(cuid())
   userId      String
+  questions   Question[]
   timeStarted DateTime
   topic       String
   timeEnded   DateTime?
   gameType    GameType
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  questions   Question[]
 
-  @@index([userId], name: "userId")
+  @@index([userId])
 }
 
 model Question {

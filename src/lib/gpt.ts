@@ -8,12 +8,18 @@ const openai = new OpenAIApi(configuration);
 interface OutputFormat {
   [key: string]: string | string[] | OutputFormat;
 }
+// export interface Question {
+//   question: string;
+//   answers: string[];
+//   correctAnswerPositions: number[];
+// }
 export interface Question {
   question: string;
-  answers: string[];
-  correctAnswerPositions: number[];
+  answer: string;
+  option1: string;
+  option2: string;
+  option3: string;
 }
-
 export interface QueryQuestionsResponse {
   questions: Question[];
   requestMessage: string;
@@ -85,10 +91,17 @@ $2. How many letters are in the english alphabet?|30|24|28|26#"`,
         });
       }
 
+      const correctAnswerIndex = correctAnswerPositions[0];
+      const correctAnswer = answers[correctAnswerIndex];
+      // delete right answer from answers
+      answers.splice(correctAnswerIndex, 1);
+      const options = answers.map(a => a.replace('#', ''));
       questions.push({
         question,
-        answers: answers.map(a => a.replace('#', '')),
-        correctAnswerPositions,
+        answer: correctAnswer.replace('#', ''),
+        option1: options[0],
+        option2: options[1],
+        option3: options[2],
       });
     }
   }
