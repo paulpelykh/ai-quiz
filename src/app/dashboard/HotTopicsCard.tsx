@@ -6,11 +6,19 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { prisma } from '@/lib/db';
 import React from 'react';
 
 type Props = {};
 
-const HotTopicsCard = (props: Props) => {
+const HotTopicsCard = async (props: Props) => {
+  const topics = await prisma.topic_count.findMany({});
+  const formattedTopics = topics.map(topic => {
+    return {
+      text: topic.topic,
+      value: topic.count,
+    };
+  });
   return (
     <Card className="col-span-4">
       <CardHeader>
@@ -19,8 +27,8 @@ const HotTopicsCard = (props: Props) => {
           Click on a topic to start a quiz on it
         </CardDescription>
       </CardHeader>
-      <CardContent className="pl-2">
-        <CustomWordCloud />
+      <CardContent className="pl-2 cursor-pointer">
+        <CustomWordCloud formattedTopics={formattedTopics} />
       </CardContent>
     </Card>
   );
