@@ -106,7 +106,6 @@ const MCQ = ({ game }: Props) => {
   const options = React.useMemo(() => {
     if (!currentQuestion) return [];
     if (!currentQuestion.options) return [];
-    console.log(currentQuestion.options);
     return currentQuestion.options as string[];
   }, [currentQuestion]);
 
