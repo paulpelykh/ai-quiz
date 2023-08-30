@@ -63,11 +63,12 @@ const QuizCreation = (props: Props) => {
       },
       {
         onSuccess: ({ gameId }) => {
-          if (form.getValues('type') === 'open_ended') {
-            router.push(`/play/open-ended/${gameId}`);
-          } else {
-            router.push(`/play/mcq/${gameId}`);
-          }
+          // if (form.getValues('type') === 'open_ended') {
+          //   router.push(`/play/open-ended/${gameId}`);
+          // } else {
+          //   router.push(`/play/mcq/${gameId}`);
+          // }
+          router.push(`/play/mcq/${gameId}`);
         },
       }
     );
@@ -76,7 +77,7 @@ const QuizCreation = (props: Props) => {
   form.watch();
 
   return (
-    <div className="absolute top-1/2 left-1/2 -translate-y-1/2">
+    <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
       <Card>
         <CardHeader>
           <CardTitle className="text-2x font-bold">Quiz Creation</CardTitle>
@@ -122,7 +123,7 @@ const QuizCreation = (props: Props) => {
                   </FormItem>
                 )}
               />
-              <div className="flex justify-between">
+              {/* <div className="flex justify-between">
                 <Button
                   variant={
                     form.getValues('type') === 'mcq' ? 'default' : 'secondary'
@@ -148,8 +149,12 @@ const QuizCreation = (props: Props) => {
                 >
                   <BookOpen className="w-4 h-4 mr-2" /> Open Ended
                 </Button>
-              </div>
-              <Button disabled={isLoading} type="submit">
+              </div> */}
+              <Button
+                disabled={isLoading}
+                type="submit"
+                className="flex mx-auto"
+              >
                 Submit
               </Button>
             </form>
