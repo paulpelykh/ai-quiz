@@ -4,9 +4,6 @@ import { ZodError } from 'zod';
 import { strict_output } from '@/lib/gpt';
 import { getAuthSession } from '@/lib/nextauth';
 
-export const runtime = 'edge'; // 'nodejs' is the default
-export const preferredRegion = 'iad1'; // only execute this function on iad1
-
 // api/questions
 export const POST = async (req: Request, res: Response) => {
   try {
