@@ -4,9 +4,8 @@ import { ZodError } from 'zod';
 import { strict_output } from '@/lib/gpt';
 import { getAuthSession } from '@/lib/nextauth';
 
-export const config = {
-  runtime: 'edge',
-};
+export const runtime = 'edge';
+
 // api/questions
 export const POST = async (req: Request, res: Response) => {
   try {
