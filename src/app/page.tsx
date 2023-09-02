@@ -11,8 +11,6 @@ import { prisma } from '@/lib/db';
 import { getAuthSession } from '@/lib/nextauth';
 import { redirect } from 'next/navigation';
 
-export const runtime = 'edge';
-
 export default async function Home() {
   const session = await getAuthSession();
   if (session?.user) {
