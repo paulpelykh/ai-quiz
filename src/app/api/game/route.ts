@@ -6,9 +6,7 @@ import { ZodError } from 'zod';
 import { prisma } from '@/lib/db';
 import axios from 'axios';
 
-export const config = {
-  runtime: 'edge',
-};
+export const runtime = 'edge';
 
 export async function POST(req: Request, res: Response) {
   try {
