@@ -43,11 +43,14 @@ export async function POST(req: Request, res: Response) {
       },
     });
 
-    const { data } = await axios.post(`http://localhost:3000/api/questions`, {
-      amount,
-      topic,
-      type,
-    });
+    const { data } = await axios.post(
+      `https://gpt-rest-b68b74447cb9.herokuapp.com/api/questions`,
+      {
+        amount,
+        topic,
+        type,
+      }
+    );
     if (type === 'mcq') {
       type mcqQuestion = {
         question: string;
