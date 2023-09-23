@@ -1,3 +1,5 @@
+This platform is transforming the quiz and trivia experience by leveraging the vast capabilities of artificial intelligence. It is using OpenAI API to generate quiz by any topic
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
