@@ -53,7 +53,7 @@ const QuizCreation = ({ topicParam }: Props) => {
   const form = useForm<Input>({
     resolver: zodResolver(quizCreationSchema),
     defaultValues: {
-      amount: 3,
+      amount: 2,
       topic: topicParam,
       type: 'mcq',
     },
