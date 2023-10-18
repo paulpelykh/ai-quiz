@@ -128,7 +128,7 @@ const QuizCreation = ({ topicParam }: Props) => {
                         {...field}
                         type='number'
                         min={1}
-                        max={2}
+                        max={7}
                         onChange={e => {
                           form.setValue('amount', parseInt(e.target.value));
                         }}

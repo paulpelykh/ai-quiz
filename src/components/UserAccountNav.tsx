@@ -24,38 +24,38 @@ const UserAccountNav = ({ user }: Props) => {
     <DropdownMenu>
       {/* TODO:select the best height */}
       <DropdownMenuTrigger className="h-10 w-10">
-        {/* user avatar */}
         <UserAvatar user={user} />
-        <DropdownMenuContent className="bg-white" align="end">
-          <div className="flex items-center justify-start gap-2 p-2">
-            <div className="flex flex-col space-y-1 leading-none">
-              {user.name && <p className="font-medium">{user.name}</p>}
-              {user.email && (
-                <p className="w-[200px] truncate text-sm text-zinc-700">
-                  {user.email}
-                </p>
-              )}
-            </div>
-          </div>
-
-          <DropdownMenuSeparator />
-          <DropdownMenuItem asChild>
-            <Link href="/">More</Link>
-          </DropdownMenuItem>
-
-          <DropdownMenuSeparator />
-          <DropdownMenuItem
-            onClick={e => {
-              e.preventDefault();
-              signOut().catch(console.error);
-            }}
-            className="inline-flex items-center text-red-600 cursor-pointer"
-          >
-            Sign Out
-            <LogOut className="w-4 h-4 ml-2" />
-          </DropdownMenuItem>
-        </DropdownMenuContent>
       </DropdownMenuTrigger>
+      <DropdownMenuContent className="bg-white" align="end">
+        <div className="flex items-center justify-start gap-2 p-2">
+          <div className="flex flex-col space-y-1 leading-none">
+            {user.name && <p className="font-medium">{user.name}</p>}
+            {user.email && (
+              <p className="w-[200px] truncate text-sm text-zinc-700">
+                {user.email}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild className="p-2">
+          <Link href="/">More</Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem
+          onSelect={e => {
+            e.preventDefault();
+            signOut().catch(console.error);
+          }}
+          className="text-red-600 cursor-pointer p-2 flex items-center"
+        >
+          Sign Out
+          <LogOut className="w-4 h-4 ml-2" />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
