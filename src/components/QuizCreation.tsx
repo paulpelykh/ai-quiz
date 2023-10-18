@@ -93,23 +93,23 @@ const QuizCreation = ({ topicParam }: Props) => {
   }
 
   return (
-    <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+    <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
       <Card>
         <CardHeader>
-          <CardTitle className="text-2x font-bold">Quiz Creation</CardTitle>
+          <CardTitle className='text-2x font-bold'>Quiz Creation</CardTitle>
           <CardDescription>Choose a topic</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
               <FormField
                 control={form.control}
-                name="topic"
+                name='topic'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Topic</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter a topic..." {...field} />
+                      <Input placeholder='Enter a topic...' {...field} />
                     </FormControl>
                     <FormDescription>Please provide a topic</FormDescription>
                     <FormMessage />
@@ -118,17 +118,17 @@ const QuizCreation = ({ topicParam }: Props) => {
               />
               <FormField
                 control={form.control}
-                name="amount"
+                name='amount'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Number of Questions</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Enter an amount..."
+                        placeholder='Enter an amount...'
                         {...field}
-                        type="number"
+                        type='number'
                         min={1}
-                        max={7}
+                        max={10}
                         onChange={e => {
                           form.setValue('amount', parseInt(e.target.value));
                         }}
@@ -168,8 +168,8 @@ const QuizCreation = ({ topicParam }: Props) => {
               </div> */}
               <Button
                 disabled={isLoading}
-                type="submit"
-                className="flex mx-auto"
+                type='submit'
+                className='flex mx-auto'
               >
                 Submit
               </Button>
